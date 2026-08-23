@@ -52,3 +52,46 @@ A **dual-stream data strategy** ensures rigorous evaluation: all 180 replicate r
 
 **Target properties:** TS (MPa) · CS (MPa) · E (GPa) · EB (%) · IS (kJ/m²)
 **Material:** PLA+ filament · FFF/FDM process
+
+## Section 0 — Research Workflow
+
+```
+RAW DATA: 180 specimens (60 combinations × 3 replicates)  |  Excel → Tensile + Impact sheets
+                        │
+          ┌─────────────┴──────────────────────────────────────────────┐
+          │ STREAM A — CV / Training (180 rows)                        │ STREAM B — Inference (60 rows)
+          │ All replicates retained                                     │ Replicate means only
+          │                                                             │
+          │  GroupKFold(k=10, 60 groups)                               │  Scalers fit on 60-row data
+          │  ┌─────────────────────┐                                   │  SHAP · NSGA-II · OLS
+          │  │ Fold 1…10           │                                   │
+          │  │  Train: ~162 rows   │                                   │
+          │  │  Test:  ~18 rows    │                                   │
+          │  │  (6 combos × 3 rep) │                                   │
+          │  └─────────────────────┘                                   │
+          └─────────────────────────────────────────────────────────────┘
+                        │
+           EDA + Kruskal-Wallis significance test (Section 3)
+                        │
+           FEATURE ENGINEERING  (Section 4)
+           Label-enc(3) · OHE+scaled(7) · Poly-deg2+scaled(9)
+           HPO: 5-fold GridSearch on 60-row aggregated data
+                        │
+           ┌────────────┼──────────────┐
+    CLASSICAL(3)    KERNEL(2)     TREE+BOOST(2)   DL+STACK(2)
+    LR·Ridge       SVR·GPR       RF·XGBoost      DeepMLP
+    Poly-Ridge                                   Stacking
+           └────────────┴──────────────┘
+                        │
+           GroupKFold(10) OOF → per-fold TRAIN+TEST table
+           Metrics: CC · MAE · MSE · RMSE · MAPE · PRMSE
+                        │
+    ┌───────────────────┴──────────────────────────────────┐
+    │ SHAP beeswarm+grouped bar  │  OLS polynomial equations │
+    │ (60-row final models)       │  (all 5 targets)         │
+    └───────────────────┬─────────────────────────────────-─┘
+                        │
+           Sensitivity Analysis (density response curves)
+           NSGA-II (5-objective, 200 pop × 150 gen) + TOPSIS
+           Novel: Anisotropy Index (AI) · MPI radar
+```
