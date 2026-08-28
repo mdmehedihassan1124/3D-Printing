@@ -1,13 +1,26 @@
 # Machine Learning and Deep Learning-Driven Multi-Property Prediction and NSGA-II Pareto Optimisation of FFF 3D Printing Process Parameters
 
-**Authors:** M. A. Shadab Siddiqui ; Mehedi Hassan Maruf;· Mahlet Adane · Ousman Yimam
+
+**Authors:** M. A. Shadab Siddiquia, Mehedi Hassan Maruf b†, Md. Sakib Hossainb†, Arafath Mohivc†, Mahlet Tsedalu Adanea†, Ousman Mohammed Yimama†, Md. Sanaul Rabbib, Fahad Alama,d,       Mokarram Hossaine
+
+
+a-Department of Materials Science and Engineering, King Fahd University of Petroleum and Minerals (KFUPM), Dhahran, Saudi Arabia
+
+b-Department of Mechanical Engineering, Chittagong University of Engineering and Technology, Chattogram 4349, Bangladesh
+
+c-Department of Mechanical Engineering, Ahsanullah University of Science & Technology, Dhaka, Bangladesh.
+
+d-Interdisciplinary Research Center for Biosystems and Machines, King Fahd University of Petroleum and Minerals (KFUPM), Dhahran, Saudi Arabia
+
+e-Zienkiewicz Institute for Modelling, Data and AI, Faculty of Science and Engineering, Swansea University, Swansea, SA1 8EN, United Kingdom
+
+†These authors contributed equally to this work.
 
 ---
 
 ## Abstract
 
-This study presents a first-of-its-kind comprehensive machine learning (ML) and deep learning (DL) framework for simultaneous **prediction** and **multi-objective Pareto optimisation** of five key mechanical properties of Fused Filament Fabrication (FFF)-printed PLA+ specimens: **Tensile Strength (TS, MPa)**, **Compression Strength (CS, MPa)**, **Young's Modulus (E, GPa)**, **Elongation at Break (EB, %)**, and **Impact Resistance (IS, kJ/m²)**. A full-factorial experimental matrix of **180 specimens** — 60 unique parameter combinations × 3 replicates — spanning **5 infill patterns** (Line, Grid, Honeycomb, Cubic, Rectangular), **4 infill densities** (20–80%), and **3 print orientations** (0°/45°/90°) was designed and characterised. A **dual-stream data strategy** ensures rigorous evaluation: all 180 replicate rows feed a **GroupKFold(10)** outer cross-validation (60 groups = unique parameter combinations, ~54 test rows/fold) that eliminates within-combination data leakage entirely — a methodological advance over the random CV splits used in most prior 3D printing ML studies. Replicate means (60 rows) are reserved exclusively for SHAP interpretability, NSGA-II optimisation, and analytical OLS equation derivation.
-**10 prediction models** are benchmarked end-to-end  two linear models (LR, Ridge), two kernel models (SVR, GPR), two tree-ensemble models (Random Forest, XGBoost), three neural networks (MLP, 1D-CNN, Residual MLP), and one meta-ensemble (Stacking) using **7 evaluation metrics** (CC, MAE, MSE, RMSE, RRSE, MAPE, PRMSE) with full train-vs-test per-fold overfitting diagnostics. The best models achieve CC > 0.95 for Compression Strength and Young’s Modulus, CC > 0.89 for Elongation at Break, while Tensile Strength (CC = 0.23) and Impact Resistance (CC = 0.17) reflect genuine inter-replicate variability. Top models are interpreted via SHAP and leveraged by a 5-objective NSGA-II optimiser (200 population × 150 generations) to produce a non-dominated Pareto front ranked by TOPSIS with application-weighted criteria.
+Fused Filament Fabrication (FFF) is a popular Additive Manufacturing technique, but due to the anisotropy of the printed parts, there is not yet a reliable connection between the process parameters and the mechanical properties. An interpretable machine-learning framework is proposed for predicting the mechanical behavior of PLA+ specimens fabricated with different infill patterns, infill densities, and print orientations. The full-factorial design consisted of five infill patterns, four infill densities, and three different orientations of the print direction, leading to 60 factor combinations that were each replicated three times for 180 printed specimens. The compression strength and impact resistance were experimentally characterized and physics-informed surrogate responses were included to estimate the tensile strength, Young's modulus and elongation at break. A leakage free GroupKFold(10) cross validation strategy was used within the replicate-level data set to prevent information leakage between the training and testing folds. A standard validation scheme was used to compare 10 machine-learning and deep-learning models with various statistical indicators. Under leakage-free validation, compression strength and impact resistance proved difficult to predict from macroscopic parameters (best CC = 0.257 and 0.179). The physics-informed surrogate responses were reproduced with high accuracy (CC up to 0.979), which reflects the smoothness of their construction rather than predictive skill. To quantify the directional dependence, a compression-based Anisotropy Index (AI) was introduced. SHAP analysis identified infill density as the dominant driver of the surrogate responses by construction, whereas print orientation was most influential for Compression Strength and infill pattern for Impact Resistance, and closed form polynomial equations allowed for quick engineering estimate.
 
 ---
 
