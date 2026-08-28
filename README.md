@@ -26,15 +26,13 @@ Fused Filament Fabrication (FFF) is a popular Additive Manufacturing technique, 
 
 ## Research Objectives
 
-1. **Benchmark 10 ML/DL models** for simultaneous five-property mechanical prediction from three FFF process parameters under a leakage-free GroupKFold(10) cross-validation protocol, reporting 7 evaluation metrics with train/test overfitting diagnostics.
-
-2. **Derive closed-form OLS polynomial equations** (degree-2) validated by Leave-One-Out CV (n = 60) — enabling direct process planning and property prediction without any predictive software or trained model.
-
-3. **Quantify feature influence** via SHAP (SHapley Additive exPlanations) for all five mechanical targets, providing physically interpretable rankings of infill density, pattern geometry, and print orientation across model families.
-
-4. **Optimise five competing objectives simultaneously** using NSGA-II (200 population × 150 generations) and rank Pareto-optimal solutions via TOPSIS with application-specific importance weights.
-
-5. **Introduce two novel scalar performance indices**: the **Anisotropy Index (AI)** — quantifying directional mechanical sensitivity between 0° and 90° orientations — and the **Mechanical Performance Index (MPI)** — a SHAP-weighted composite enabling single-number ranking of all 60 print configurations.
+1.	To develop an interpretable ML framework for predicting the mechanical behaviour of FFF-printed PLA+ components. 
+2.	To evaluate the effects of infill pattern, infill density, and print orientation on multiple mechanical properties. 
+3.	To develop a leakage-free GroupKFold(10) validation framework that prevents information leakage from replicated specimens. 
+4.	To benchmark ML and DL models for predicting tensile strength, compression strength, Young’s modulus, elongation at break, and impact resistance. 
+5.	To quantify anisotropic behaviour of FFF-printed PLA+ using an Anisotropy Index (AI). 
+6.	To interpret model predictions using SHAP analysis and identify the most influential process parameters. 
+7.	To develop closed-form polynomial equations for rapid engineering estimation of the mechanical properties.
 
 ---
 
