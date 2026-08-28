@@ -1,4 +1,4 @@
-# Machine Learning and Deep Learning-Driven Multi-Property Prediction and NSGA-II Pareto Optimisation of FFF 3D Printing Process Parameters
+# An Interpretable Machine-Learning Framework with Leakage-Free Validation for Predicting the Mechanical Behaviour of FFF-Printed PLA+ Components
 
 
 **Authors:** M. A. Shadab Siddiquia, Mehedi Hassan Maruf b†, Md. Sakib Hossainb†, Arafath Mohivc†, Mahlet Tsedalu Adanea†, Ousman Mohammed Yimama†, Md. Sanaul Rabbib, Fahad Alama,d,       Mokarram Hossaine
