@@ -1,7 +1,7 @@
 # An Interpretable Machine-Learning Framework with Leakage-Free Validation for Predicting the Mechanical Behaviour of FFF-Printed PLA+ Components
 
 
-**Authors:** M. A. Shadab Siddiquia, Mehedi Hassan Maruf b†, Md. Sakib Hossainb†, Arafath Mohivc†, Mahlet Tsedalu Adanea†, Ousman Mohammed Yimama†, Md. Sanaul Rabbib, Fahad Alama,d,       Mokarram Hossaine
+**Authors:** M. A. Shadab Siddiquia, Mehedi Hassan Maruf b†, Md. Sakib Hossain b†, Arafath Mohiv c†, Mahlet Tsedalu Adane a†, Ousman Mohammed Yimam a†, Md. Sanaul Rabbib, Fahad Alama,d,       Mokarram Hossaine
 
 
 a-Department of Materials Science and Engineering, King Fahd University of Petroleum and Minerals (KFUPM), Dhahran, Saudi Arabia
